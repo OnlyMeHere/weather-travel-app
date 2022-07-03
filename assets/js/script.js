@@ -13,11 +13,21 @@ fetch(reqUrl)
     .then(function(response) {
         console.log("response", response)
         return response.json();
-    // ---receives the data and parses it from a string to and object
+        // ---receives the data and parses it from a string to and object
     })
     .then(function (data) {
         console.log("data", data)
         // ----receives the object and passes it to be rendered on the page
+
+
+        // ----builds current Weather in city window
+
+
+        //  ---builds 5-day forecast of that city
+
+
+        // ---stores selected city in localStorage
+        
 
     });
 
