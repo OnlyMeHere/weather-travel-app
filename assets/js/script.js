@@ -1,5 +1,10 @@
+
+
+
+
 var city = "San Francisco"
 var country = "US"
+
 
 
 
@@ -27,7 +32,7 @@ fetch(reqUrl)
 
 
         // ---stores selected city in localStorage
-        
+
 
     });
 

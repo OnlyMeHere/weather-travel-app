@@ -1,0 +1,38 @@
+
+
+html {
+    font-family: 'Merriweather', serif;
+};
+
+ul {
+    list-style-type: none;
+};
+
+#header {
+
+    height: 3em;
+    width: 100%;
+    border: none;
+    background-color: blue;
+    color: white;
+    text-align: center;
+
+
+};
+
+.wereToNext {
+
+display:flex;
+justify-content: flex-start;
+text-align: start;
+}
+
+#day1 {
+
+height: 20px;
+width: 20ps;
+background-color: blanchedalmond;
+color: black;
+text-align: start;
+
+}
