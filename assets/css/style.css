@@ -4,9 +4,12 @@ html {
     font-family: 'Merriweather', serif;
 };
 
-ul {
-    list-style-type: none;
-};
+table {
+
+    display: flex;
+    text-align: start;
+    
+}
 
 #header {
 
