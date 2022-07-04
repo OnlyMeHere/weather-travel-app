@@ -1,14 +1,18 @@
 
+// var cityQstEl = document.getElementsByTagName("textarea");
+// var startBtnEl = document.getElementsByTagName("button").addEventListener("click", validateClick());
 
 
+// function validateClick() {
+    // console.log("click");
+// }
+var cityQstEl = "";
+cityQstEl = "Oakland"; 
 
-var city = "San Francisco"
-var country = "US"
+// --- user input is validated here
 
 
-
-
-var reqUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=f1854a42b65c3a76fa9e1197b0e5cd1d&units=imperial';
+var reqUrl = `https://api.openweathermap.org/data/2.5/weather?q=` + cityQstEl + `&appid=f1854a42b65c3a76fa9e1197b0e5cd1d&units=imperial`;
 
 // city search returns current and future weather
 
@@ -23,6 +27,8 @@ fetch(reqUrl)
     .then(function (data) {
         console.log("data", data)
         // ----receives the object and passes it to be rendered on the page
+        console.log("Map Keys: " + Object.keys(data));
+        console.log("weather ="+ data.weather.main.humidity);
 
 
         // ----builds current Weather in city window
