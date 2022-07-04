@@ -1,13 +1,14 @@
 
-// var cityQstEl = document.getElementsByTagName("textarea");
-// var startBtnEl = document.getElementsByTagName("button").addEventListener("click", validateClick());
+var cityQstEl = document.querySelector("#cityQst");
+var startBtn = document.querySelector("button").addEventListener("click", validateClick());
 
 
-// function validateClick() {
-    // console.log("click");
-// }
-var cityQstEl = "";
-cityQstEl = "Oakland"; 
+function validateClick(event) {
+    event.preventDefault(event);
+      console.log("click");
+}
+// var cityQstEl = "";
+// cityQstEl = "London"; 
 
 // --- user input is validated here
 
@@ -28,7 +29,9 @@ fetch(reqUrl)
         console.log("data", data)
         // ----receives the object and passes it to be rendered on the page
         console.log("Map Keys: " + Object.keys(data));
-        console.log("weather ="+ data.weather.main.humidity);
+        console.log("latitude = "+ data.coord.lat);
+        console.log("longitude = "+ data.coord.lon);
+        console.log("location = "+ data.name);
 
 
         // ----builds current Weather in city window

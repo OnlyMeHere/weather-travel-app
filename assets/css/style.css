@@ -44,16 +44,13 @@ color: black;
 text-align: start;
 
 }
-/* <!-- Code by w3codegenerator.com --> */
 #startBtn {
-   font-size:20px;
-   font-weight:bold;
-   line-height:20px;
-   color:#ffffff;
-   background-color:#82005f;
-   padding:20px;
-}
 
+    height: 10px;
+    width: 30px;
+    background-color: red;
+    color: white;
+}
 
 
 
