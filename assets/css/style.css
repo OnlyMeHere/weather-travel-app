@@ -37,17 +37,19 @@ text-align: start;
 
 #todayCityWethr {
 
-height: 20px;
-width: 20ps;
-background-color: blanchedalmond;
-color: black;
-text-align: start;
+    display: flex;
+    justify-content: end;
+    height: 50px;
+    width: 2050ps;
+    background-color: blanchedalmond;
+    color: black;
+    text-align: start;
 
 }
 #startBtn {
 
-    height: 10px;
-    width: 30px;
+    height: 35px;
+    width: 120px;
     background-color: red;
     color: white;
 }

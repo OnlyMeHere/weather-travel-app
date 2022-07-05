@@ -22,18 +22,33 @@
     </header>
     <section>
         <div id="leftSide">
-        <form action="">
-            <label for="Were to Next?"></label>
-            <textarea name="City" id="cityQst" cols="30" rows="5"></textarea>
-            <button id="startBtn"type="submit"></button>
-        </form>
+             <form action="post">
+                <label for="startBtn">Were to Next?</label>
+                <textarea id="cityQst"></textarea>
+                <button id="startBtn"type="submit"></button>
+            </form>
         </div>
     </section>
 
     <section id="rightSide">
 
         <div id="todayCityWethr">
-            <p>today's city weather</p>
+            <table>
+                <th>
+                    <tr>
+                        <td>today's city weather</td>
+                    </tr>
+                </th>
+                    <tr>
+                        <td id="temperture0">temperture0</td>
+                    </tr>
+                    <tr>
+                        <t id="wind0">wind0</td>
+                    </tr>
+                    <tr>
+                        <td id="humdity0">humdity0</td>
+                    </tr>
+            </table>
         </div>
 
         <table id="fiveDayF">
