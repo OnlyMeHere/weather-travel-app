@@ -3,21 +3,17 @@
 
 
 
-var cityQstEl = "";
 
-
-
-// var cityQstEl = document.getElementById("#cityQst").value;
-var startBtn = document.querySelector("button").addEventListener("click", validateClick);
-
-cityQstEl = "London"; 
+var startBtn = document.getElementById("startBtn");
 
 
 
 
-
-
-
+var userInputEl = document.getElementById("userInput");
+startBtn.addEventListener("click", function(event){
+    validateClick(userInputEl.value);
+    console.log("event"+event);
+} )
 function validateClick(event) {
     event.preventDefault()
     console.log("click");
