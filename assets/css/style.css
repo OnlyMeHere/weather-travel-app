@@ -4,55 +4,6 @@ html {
     font-family: 'Merriweather', serif;
 };
 
-table {
-
-    display: flex;
-    text-align: start;
-    
-}
-
-#header {
-
-    height: 3em;
-    width: 100%;
-    border: none;
-    background-color: blue;
-    color: white;
-    text-align: center;
-
-};
-
-#rightSide {
-
-    display: inline-block;
-    justify-content: end;
-}
-
-#leftSide {
-
-display:flex;
-justify-content: flex-start;
-text-align: start;
-}
-
-#todayCityWethr {
-
-    display: flex;
-    justify-content: end;
-    height: 50px;
-    width: 2050ps;
-    background-color: blanchedalmond;
-    color: black;
-    text-align: start;
-
-}
-#startBtn {
-
-    height: 35px;
-    width: 120px;
-    background-color: red;
-    color: white;
-}
 
 
 

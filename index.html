@@ -7,102 +7,104 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
+    
 
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
     <title>Weather Travel App</title>
 </head>
 <body>
-    <header id="header">
-
-        <h1>Weather Travel Dashboard</h1>
-
-    </header>
-    <section>
-        <div id="leftSide">
-             <form action="post">
-                <label for="startBtn">Were to Next?</label>
-                <textarea id="cityQst"></textarea>
-                <button id="startBtn"type="submit"></button>
-            </form>
+    <div class="jumbotron jumbotron">
+        <div class="container">
+          <h1 class="display-4">Travel Weather</h1>
+          <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
         </div>
-    </section>
-
-    <section id="rightSide">
-
-        <div id="todayCityWethr">
-            <table>
-                <th>
-                    <tr>
-                        <td>today's city weather</td>
-                    </tr>
-                </th>
-                    <tr>
-                        <td id="temperture0">temperture0</td>
-                    </tr>
-                    <tr>
-                        <t id="wind0">wind0</td>
-                    </tr>
-                    <tr>
-                        <td id="humdity0">humdity0</td>
-                    </tr>
-            </table>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <input type="text" class="form-control" placeholder="Where to?">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-9">
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card-header">cityDate0</div>
+                        <div class="card-body">
+                            <p class="card-text id="uVinex0">Current UV Index</p>
+                            <p class="card-text id="temperature0">CurrentTemp<p>
+                            <p class="card-text id="wind0">CurrentWindSpeed</p>
+                            <p class="card-text id="humidity0">CurrentHumidity</p>    
+                        </div>      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div row >
+            <div class="column-2">
+                <div class="card text-white bg-primary mb-3" style="max-width:      18rem;">
+                    <div class="card-header id="cityDate1">cityDate1</div>
+                    <div class="card-body">
+                    <p class="card-text" id="uVindex1">UV Index</p>
+                    <p class="card-text" id="temperature1">Tempurature</p>
+                    <p class="card-text" id="wind1">Wind Speed</p>
+                    <p class="card-text" id="humidity1">Humidity</p>
+                </div>
+            </div>
+            <div class="column-2">
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">cityDate2</div>
+                        <div class="card-body">
+                        <p class="card-text id="uVindax2">UV Index</p>
+                        <p class="card-text id="temperatur2">Temperature</p>
+                        <p class="card-text id="wind2">Wind Speed</p>
+                        <p class="card-text id="humidity2">Humidity</p>
+                </div>
+            </div>
+            <div class="column-2">
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">cityDate3</div>
+                    <div class="card-body">
+                    <p class="card-text id="uVindax3">UV Index</p>
+                    <p class="card-text id="temperatur3">Temperature</p>
+                    <p class="card-text id="wind3">Wind Speed</p>
+                    <p class="card-text id="humidity3">Humidity</p>
+                </div>
+            </div>
+            <div class="column-2">
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">cityDate4</div>
+                        <div class="card-body">
+                        <p class="card-text id="uVindax4">UV Index</p>
+                        <p class="card-text id="temperatur4">Temperature</p>
+                        <p class="card-text id="wind4">Wind Speed</p>
+                        <p class="card-text id="humidity4">Humidity</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column-2">
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">cityDate5</div>
+                        <div class="card-body">
+                        <p class="card-text id="uVindax5">UV Index</p>
+                        <p class="card-text id="temperatur5">Temperature</p>
+                        <p class="card-text id="wind5">Wind Speed</p>
+                        <p class="card-text id="humidity5">Humidity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <table id="fiveDayF">
-            <tr>
-                <th>5 Day Forecast</th>
-            </tr>
-            <tr>
-                <td>date1</td>
-                <td>date2</td>
-                <td>date3</td>
-                <td>date4</td>
-                <td>date5</td>
-            </tr>
-            <tr>
-                <td>uVdate1</td>
-                <td>uVdate2</td>
-                <td>uVdate3</td>
-                <td>uVdate4</td>
-                <td>uVdate5</td>
-            </tr>
-            <tr>
-                <td>iconDate1</td>
-                <td>iconDate2</td>
-                <td>iconDate3</td>
-                <td>iconDate4</td>
-                <td>iconDate5</td>
-            </tr>
-            <tr>
-                <td>TempDate1</td>
-                <td>TempDate2</td>
-                <td>TempDate3</td>
-                <td>TempDate4</td>
-                <td>TempDate5</td>
-            </tr>
-            <tr>
-                <td>WindDate1</td>
-                <td>WindDate2</td>
-                <td>WindDate3</td>
-                <td>WindDate4</td>
-                <td>WindDate5</td>
-            </tr>
-            <tr>
-                <td>HumidityDate1</td>
-                <td>HumidityDate2</td>
-                <td>HumidityDate3</td>
-                <td>HumidityDate4</td>
-                <td>HumidityDate5</td>
-            </tr>
-        </table>
-    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-
-
-
-    <script src="./assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
 </body>
 </html>
