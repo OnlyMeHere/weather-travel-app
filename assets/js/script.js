@@ -7,7 +7,7 @@ var userInputEl = "";
 var startBtn = document.getElementById("startBtn");
 
 var userInputEl = document.getElementById("userInput");
-
+// --This was intended to use momentjs() to time stamp the todays weather card
 function timeStamp() {
     
 }
@@ -20,7 +20,8 @@ startBtn.addEventListener("click", function(event){
     console.log("userInputEl = " + userInputEl);
 
 });
-
+//  -- the function above waits for the text input to be entered
+//  -- and the button clicked
 
 function cityLookUp(userInputEl) {
     // -- calls the geo location API to get latitude and longitude of requested city to input those values in the second API below
@@ -48,7 +49,7 @@ function cityLookUp(userInputEl) {
             // ----receives the current day data and renders it to the page
             var currentDayCard = document.getElementById("currentDay");
             var currentDayHeading = document.createElement("h3");
-            currentDayHeading.textContent = userInputEl + timeStamp;
+            currentDayHeading.textContent = userInputEl;
             currentDayCard.appendChild(currentDayHeading);
             var currentDayTemp = document.createElement("h5");
             currentDayTemp.textContent = "Temp: " + data.current.temp + " F";
@@ -63,14 +64,14 @@ function cityLookUp(userInputEl) {
             currentDayUvInex.textContent = "UV Index: " + data.current.uvi;
             currentDayCard.appendChild(currentDayUvInex);
         
-            // ----- puts this current day data into local storage for retreaval from search history dropdown. 
+            // ----- below puts this current day data into local storage for retreaval from search history dropdown. 
 
-            const searchOne {
+            // const searchOne {
 
-                cityName: userInputEl
+                // cityName: userInputEl
 
-            }
-            
+            // }
+            // 
 
 
 
