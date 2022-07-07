@@ -1,51 +1,43 @@
 
-//  --Geolocation API:
-// fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + userInputEl + "&
-// limit=5&appid=f1854a42b65c3a76fa9e1197b0e5cd1d")
 
-
-
-// --One Call API
-
-var lat = 0
-var lon = 0
+var lat = 0;
+var lon = 0;
 var userInputEl = "";
 
 var startBtn = document.getElementById("startBtn");
 
-
 var userInputEl = document.getElementById("userInput");
+
+function timeStamp() {
+    
+}
 
 
 startBtn.addEventListener("click", function(event){
     event.preventDefault()
     cityLookUp(userInputEl.value);
     console.log("event"+event);
+    console.log("userInputEl = " + userInputEl);
+
 });
 
 
-function cityLookUp() {
-
-    
-    
-
-
-    fetch("http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=f1854a42b65c3a76fa9e1197b0e5cd1d")
+function cityLookUp(userInputEl) {
+    // -- calls the geo location API to get latitude and longitude of requested city to input those values in the second API below
+    fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + userInputEl + "&limit=5&appid=f1854a42b65c3a76fa9e1197b0e5cd1d")
         .then(function(response) {
-        console.log("Geo-Location = " + response);
-        return response.json();
+            console.log("Geo-Location = " + response);
+            return response.json();
         })
          .then(function(geodata) {
-        console.log("Geo Data = ", geodata);
-        lat = geodata[0].lat;
-        lon = geodata[0].lon;
-        console.log("lat = " + lat);
-        console.log("lon = " + lon);
+            console.log("Geo Data = ", geodata);
+            lat = geodata[0].lat;
+            lon = geodata[0].lon;
+            console.log("lat = " + lat);
+            console.log("lon = " + lon);
 
-
-
-        fetch("http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=f1854a42b65c3a76fa9e1197b0e5cd1d")
-            // --- calls out to the API for data
+        fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon +"&units=imperial&appid=f1854a42b65c3a76fa9e1197b0e5cd1d")
+            // --- calls out to the API for weather data
          .then(function(response) {
             console.log("response", response)
             return response.json();
@@ -53,20 +45,36 @@ function cityLookUp() {
          })
          .then(function (data) {
             console.log("data", data)
-            // ----receives the object and passes it to be rendered on the page
-            // var currentDayCard = document.getElementById("currentDay");
-            // var currentDayHeading = document.createElement("h3");
-            // currentDayHeading.textContent = data.name
-            // currentDayCard.appendChild(currentDayHeading);
-            // var currentDayTemp = document.createElement("h5");
-            // currentDayTemp.textContent = data.main.temp;
-            // currentDayCard.appendChild(currentDayTemp);
-            // ---
-            // 
-            // var temperture0 = data.main.temp;
-            // var wind0 = data.wind.speed;
-            // var humdity0 = data.main.humidity;
-            // ----builds current Weather in city window
+            // ----receives the current day data and renders it to the page
+            var currentDayCard = document.getElementById("currentDay");
+            var currentDayHeading = document.createElement("h3");
+            currentDayHeading.textContent = userInputEl + timeStamp;
+            currentDayCard.appendChild(currentDayHeading);
+            var currentDayTemp = document.createElement("h5");
+            currentDayTemp.textContent = "Temp: " + data.current.temp + " F";
+            currentDayCard.appendChild(currentDayTemp);
+            var currentDayWind = document.createElement("h5");
+            currentDayWind.textContent = "Wind Speed: " + data.current.wind_speed + "mph";
+            currentDayCard.appendChild(currentDayWind);
+            var currentDayHumidity = document.createElement("h5");
+            currentDayHumidity.textContent = "Humidity: " + data.current.humidity + " %";
+            currentDayCard.appendChild(currentDayHumidity);
+            var currentDayUvInex = document.createElement("h5");
+            currentDayUvInex.textContent = "UV Index: " + data.current.uvi;
+            currentDayCard.appendChild(currentDayUvInex);
+        
+            // ----- puts this current day data into local storage for retreaval from search history dropdown. 
+
+            const searchOne {
+
+                cityName: userInputEl
+
+            }
+            
+
+
+
+
         });
 
 
