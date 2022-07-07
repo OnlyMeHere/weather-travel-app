@@ -67,9 +67,9 @@ function cityLookUp(userInputEl) {
             // ----- below puts this current day data into local storage for retreaval from search history dropdown. 
 
             // const searchOne {
-
-                // cityName: userInputEl
-
+            // 
+            // cityName: userInputEl
+            // 
             // }
             // 
 
