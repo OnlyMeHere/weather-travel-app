@@ -1,64 +1,157 @@
 
+//  --Geolocation API:
+// fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + userInputEl + "&
+// limit=5&appid=f1854a42b65c3a76fa9e1197b0e5cd1d")
 
 
 
+// --One Call API
 
+var lat = 0
+var lon = 0
+var userInputEl = "";
 
 var startBtn = document.getElementById("startBtn");
 
 
-
-
 var userInputEl = document.getElementById("userInput");
+
+
 startBtn.addEventListener("click", function(event){
-    validateClick(userInputEl.value);
-    console.log("event"+event);
-} )
-function validateClick(event) {
     event.preventDefault()
-    console.log("click");
+    cityLookUp(userInputEl.value);
+    console.log("event"+event);
+});
+
+
+function cityLookUp() {
+
+    
+    
+
+
+    fetch("http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=f1854a42b65c3a76fa9e1197b0e5cd1d")
+        .then(function(response) {
+        console.log("Geo-Location = " + response);
+        return response.json();
+        })
+         .then(function(geodata) {
+        console.log("Geo Data = ", geodata);
+        lat = geodata[0].lat;
+        lon = geodata[0].lon;
+        console.log("lat = " + lat);
+        console.log("lon = " + lon);
+
+
+
+        fetch("http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=f1854a42b65c3a76fa9e1197b0e5cd1d")
+            // --- calls out to the API for data
+         .then(function(response) {
+            console.log("response", response)
+            return response.json();
+            // ---receives the data and parses it from a string to and object
+         })
+         .then(function (data) {
+            console.log("data", data)
+            // ----receives the object and passes it to be rendered on the page
+            // var currentDayCard = document.getElementById("currentDay");
+            // var currentDayHeading = document.createElement("h3");
+            // currentDayHeading.textContent = data.name
+            // currentDayCard.appendChild(currentDayHeading);
+            // var currentDayTemp = document.createElement("h5");
+            // currentDayTemp.textContent = data.main.temp;
+            // currentDayCard.appendChild(currentDayTemp);
+            // ---
+            // 
+            // var temperture0 = data.main.temp;
+            // var wind0 = data.wind.speed;
+            // var humdity0 = data.main.humidity;
+            // ----builds current Weather in city window
+        });
+
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // function cityLookUp(cityInfo) {
+    
+    // console.log(cityInfo);
 
     // var cityQstEl = "";
-    // 
 
-    // --- user input is validated here
-    var reqUrl = `https://api.openweathermap.org/data/2.5/weather?q=` + 
-    cityQstEl + `&appid=f1854a42b65c3a76fa9e1197b0e5cd1d&units=imperial`;
-    
+    // --- The one that doesn't have 5 day forecast
+    // var reqUrl = `https://api.openweathermap.org/data/2.5/weather?q=` + 
+    // cityInfo + `&appid=f1854a42b65c3a76fa9e1197b0e5cd1d&units=imperial`;
+   
 
 
     // city search returns current and future weather
 
 
-    fetch(reqUrl)
-    // --- calls out to the API for data
-     .then(function(response) {
-        console.log("response", response)
-        return response.json();
-        // ---receives the data and parses it from a string to and object
-     })
-     .then(function (data) {
-        console.log("data", data)
-        // ----receives the object and passes it to be rendered on the page
-        console.log("Map Keys: " + Object.keys(data));
-        console.log("latitude = "+ data.coord.lat);
-        console.log("longitude = "+ data.coord.lon);
-        console.log("location = "+ data.name);
-        console.log("temperature = " + data.main.temp);
-        console.log("wind Speed = " + data.wind.speed);
-        console.log("humidity = " + data.main.humidity);
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-        
-        var temperture0 = data.main.temp;
-        var wind0 = data.wind.speed;
-        var humdity0 = data.main.humidity;
+  
+  
+  
+
+  
 
 
-        // ----builds current Weather in city window
+  
+  
+  
+  
 
-        document.innerHTML = temperture0 ;
-        document.innerHTML = wind0;
-        document.innerHTML = humdity0;
+
+  
+
 
 
 
@@ -69,9 +162,9 @@ function validateClick(event) {
         // ---stores selected city in localStorage
 
 
-    });
+   
 
-};
+
 // that city is then added to search history
 
 // that city's name, the date, an icon of weather conditions
