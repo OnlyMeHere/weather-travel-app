@@ -3,15 +3,33 @@
 var lat = 0;
 var lon = 0;
 var userInputEl = "";
+var futureDate = [];
+var currentDate = "";
+var dayF1 = [];
+var monthF1= [];
+var yearF1= [];
 
 var startBtn = document.getElementById("startBtn");
 
 var userInputEl = document.getElementById("userInput");
-// --This was intended to use momentjs() to time stamp the todays weather card
-function timeStamp() {
-    
-}
 
+// --new Date() grabs the current date and time from
+
+function timeStamp() {
+
+    currentDate = new Date();
+    console.log("Current Date: ", currentDate);
+    for(i = 0; i < 1; i++) {
+
+        var futureDate = futureDate.push.dayF1[i] + currentDate[3].valueOf + 1;
+        var futureDate = futureDate.push.monthF1[i] + currentDate[1].valueOf;
+        var FutureDate = futureDate.push.yearF1[i] + currentDate[3].valueOf;
+        console.log( "FutureDate" + monthF1 + dayF1 + yearF1 );
+        
+    }
+
+}
+timeStamp()
 
 startBtn.addEventListener("click", function(event){
     event.preventDefault()
@@ -46,7 +64,9 @@ function cityLookUp(userInputEl) {
          })
          .then(function (data) {
             console.log("data", data)
+
             // ----receives the current day data and renders it to the page
+            
             var currentDayCard = document.getElementById("currentDay");
             var currentDayHeading = document.createElement("h3");
             currentDayHeading.textContent = userInputEl;
@@ -63,6 +83,17 @@ function cityLookUp(userInputEl) {
             var currentDayUvInex = document.createElement("h5");
             currentDayUvInex.textContent = "UV Index: " + data.current.uvi;
             currentDayCard.appendChild(currentDayUvInex);
+
+            // -- below renders the five day forecast to the page
+
+            for (i = 1; i <= 6; i++) {
+
+                var fiveDayCard = document.getElementById("fiveDay");
+                var fiveDayHeading = document.createElement("h5");
+                fiveDayHeading.textContent = futureDate;
+                fiveDayCard.appendChild(cMonth + "/" + (cDay + i) + "/" + cYear);
+
+            }
         
             // ----- below puts this current day data into local storage for retreaval from search history dropdown. 
 
