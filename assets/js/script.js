@@ -13,23 +13,6 @@ var startBtn = document.getElementById("startBtn");
 
 var userInputEl = document.getElementById("userInput");
 
-// --new Date() grabs the current date and time from
-
-function timeStamp() {
-
-    currentDate = new Date();
-    console.log("Current Date: ", currentDate);
-    for(i = 0; i < 1; i++) {
-
-        var futureDate = futureDate.push.dayF1[i] + currentDate[3].valueOf + 1;
-        var futureDate = futureDate.push.monthF1[i] + currentDate[1].valueOf;
-        var FutureDate = futureDate.push.yearF1[i] + currentDate[3].valueOf;
-        console.log( "FutureDate" + monthF1 + dayF1 + yearF1 );
-        
-    }
-
-}
-timeStamp()
 
 startBtn.addEventListener("click", function(event){
     event.preventDefault()
@@ -60,14 +43,30 @@ function cityLookUp(userInputEl) {
          .then(function(response) {
             console.log("response", response)
             return response.json();
-            // ---receives the data and parses it from a string to and object
+            // ---receives the data and parses it from a string to an object
          })
          .then(function (data) {
             console.log("data", data)
 
+            // --new Date() grabs the current date and time
+
+        function timeStamp() {
+            let date = new Date();
+            // let cDay = date.getDay();
+            let cDate = date.getDate();
+            let cMonth = date.getMonth();
+            let cYear = date.getFullYear();
+
+            return `${cMonth+1} / ${cDate} / ${cYear}`
+        };
+
+
             // ----receives the current day data and renders it to the page
             
             var currentDayCard = document.getElementById("currentDay");
+            var currentDayDate = document.createElement("h3");
+            currentDayDate.textContent = timeStamp();
+            currentDayCard.appendChild(currentDayDate);
             var currentDayHeading = document.createElement("h3");
             currentDayHeading.textContent = userInputEl;
             currentDayCard.appendChild(currentDayHeading);
@@ -87,13 +86,35 @@ function cityLookUp(userInputEl) {
             // -- below renders the five day forecast to the page
 
             for (i = 1; i <= 6; i++) {
+                function futureDate() {
+                let date = new Date() 
+                date.setDate(date.getDate() + i)
+                let cDate = date.getDate();
+                let cMonth = date.getMonth();
+                let cYear = date.getFullYear();
+                return `${cMonth+1} / ${cDate} / ${cYear}`
+                };
+                let futureDayCard = document.getElementById("futureDay");
+                let futureDayHeading = document.createElement("h5");
+                futureDayHeading.textContent = futureDate();
+                // futureDayCard.appendChild(futureDayHeading);
+                // futureDayHeading.textContent = userInputEl;
+                // futureDayCard.appendChild(futureDayHeading);
+                let futureDayTemp = document.createElement("h5");
+                futureDayTemp.textContent = "Temp: " + data.daily[i].feels_like.day + " F";
+                futureDayCard.appendChild(futureDayTemp);
+                let futureDayWind = document.createElement("h5");
+                futureDayWind.textContent = "Wind Speed: " + data.daily[i].wind_speed + "mph";
+                futureDayCard.appendChild(futureDayWind);
+                let futureDayHumidity = document.createElement("h5");
+                futureDayHumidity.textContent = "Humidity: " + data.daily[i].humidity + " %";
+                futureDayCard.appendChild(futureDayHumidity);
+                let futureDayUvInex = document.createElement("h5");
+                futureDayUvInex.textContent = "UV Index: " + data.daily[i].uvi;
+                futureDayCard.appendChild(futureDayUvInex);
 
-                var fiveDayCard = document.getElementById("fiveDay");
-                var fiveDayHeading = document.createElement("h5");
-                fiveDayHeading.textContent = futureDate;
-                fiveDayCard.appendChild(cMonth + "/" + (cDay + i) + "/" + cYear);
 
-            }
+            };
         
             // ----- below puts this current day data into local storage for retreaval from search history dropdown. 
 
