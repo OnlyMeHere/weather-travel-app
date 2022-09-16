@@ -89,17 +89,15 @@ function cityLookUp(userInputEl) {
                 function futureDate() {
                 let date = new Date() 
                 date.setDate(date.getDate() + i)
-                let cDate = date.getDate();
-                let cMonth = date.getMonth();
-                let cYear = date.getFullYear();
-                return `${cMonth+1} / ${cDate} / ${cYear}`
+                let fDate = date.getDate();
+                let fMonth = date.getMonth();
+                let fYear = date.getFullYear();
+                return `${fMonth+1} / ${fDate} / ${fYear}`
                 };
                 let futureDayCard = document.getElementById("futureDay");
                 let futureDayHeading = document.createElement("h5");
                 futureDayHeading.textContent = futureDate();
-                // futureDayCard.appendChild(futureDayHeading);
-                // futureDayHeading.textContent = userInputEl;
-                // futureDayCard.appendChild(futureDayHeading);
+                futureDayCard.appendChild(futureDayHeading);
                 let futureDayTemp = document.createElement("h5");
                 futureDayTemp.textContent = "Temp: " + data.daily[i].feels_like.day + " F";
                 futureDayCard.appendChild(futureDayTemp);
