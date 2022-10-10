@@ -94,22 +94,33 @@ function cityLookUp(userInputEl) {
                 let fYear = date.getFullYear();
                 return `${fMonth+1} / ${fDate} / ${fYear}`
                 };
-                let futureDayCard = document.getElementById("futureDay");
+                let futureDayDiv = document.getElementById("futureDay");
+                let futureDayCard = document.createElement("div");
+                futureDayDiv.appendChild(futureDayCard);
+                futureDayCard.setAttribute("class", "card");
+                let futureDayBody = document.createElement("div");
+                futureDayCard.appendChild(futureDayBody);
+                futureDayBody.setAttribute("class", "card-body");
                 let futureDayHeading = document.createElement("h5");
+                futureDayHeading.setAttribute("class", "card-title");
                 futureDayHeading.textContent = futureDate();
-                futureDayCard.appendChild(futureDayHeading);
+                futureDayBody.appendChild(futureDayHeading);
                 let futureDayTemp = document.createElement("h5");
+                futureDayTemp.setAttribute("class", "card-text");
                 futureDayTemp.textContent = "Temp: " + data.daily[i].feels_like.day + " F";
-                futureDayCard.appendChild(futureDayTemp);
+                futureDayBody.appendChild(futureDayTemp);
                 let futureDayWind = document.createElement("h5");
+                futureDayWind.setAttribute("class", "card-text");
                 futureDayWind.textContent = "Wind Speed: " + data.daily[i].wind_speed + "mph";
-                futureDayCard.appendChild(futureDayWind);
+                futureDayBody.appendChild(futureDayWind);
                 let futureDayHumidity = document.createElement("h5");
+                futureDayHumidity.setAttribute("class", "card-text");
                 futureDayHumidity.textContent = "Humidity: " + data.daily[i].humidity + " %";
-                futureDayCard.appendChild(futureDayHumidity);
+                futureDayBody.appendChild(futureDayHumidity);
                 let futureDayUvInex = document.createElement("h5");
+                futureDayUvInex.setAttribute("class", "card-text")
                 futureDayUvInex.textContent = "UV Index: " + data.daily[i].uvi;
-                futureDayCard.appendChild(futureDayUvInex);
+                futureDayBody.appendChild(futureDayUvInex);
 
 
             };
@@ -148,7 +159,7 @@ function cityLookUp(userInputEl) {
 
 
 
-}
+};
 
 
 
@@ -176,67 +187,3 @@ function cityLookUp(userInputEl) {
     // var reqUrl = `https://api.openweathermap.org/data/2.5/weather?q=` + 
     // cityInfo + `&appid=f1854a42b65c3a76fa9e1197b0e5cd1d&units=imperial`;
    
-
-
-    // city search returns current and future weather
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-
-  
-
-
-  
-  
-  
-  
-
-
-  
-
-
-
-
-
-        //  ---builds 5-day forecast of that city
-
-
-        // ---stores selected city in localStorage
-
-
-   
-
-
-// that city is then added to search history
-
-// that city's name, the date, an icon of weather conditions
-// temperature, humdity, wind speed, UV index.
-
-// the UV index is color coded: favorable/moderate/severe
-
-
-// future conditions are presented as 5 day forcast that
-// displayed with an icon representation of conditions, 
-// temperature, wind speed and humidity
-
-
-
-// clicking on the city in search history diplays the
-// current weather and 5 day forecast for that city

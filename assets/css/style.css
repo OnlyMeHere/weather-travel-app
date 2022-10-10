@@ -4,6 +4,9 @@ html {
     font-family: 'Merriweather', serif;
 };
 
+#currentDay {
+    border: 5px solid black;
+};
 
 
 
