@@ -25,6 +25,8 @@ startBtn.addEventListener("click", function(event){
 //  -- and the button clicked
 
 function cityLookUp(userInputEl) {
+    // -- clears previous search results
+
     // -- calls the geo location API to get latitude and longitude of requested city to input those values in the second API below
     fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + userInputEl + "&limit=5&appid=f1854a42b65c3a76fa9e1197b0e5cd1d")
         .then(function(response) {
@@ -50,38 +52,56 @@ function cityLookUp(userInputEl) {
 
             // --new Date() grabs the current date and time
 
-        function timeStamp() {
-            let date = new Date();
-            // let cDay = date.getDay();
-            let cDate = date.getDate();
-            let cMonth = date.getMonth();
-            let cYear = date.getFullYear();
 
-            return `${cMonth+1} / ${cDate} / ${cYear}`
-        };
 
 
             // ----receives the current day data and renders it to the page
             
-            var currentDayCard = document.getElementById("currentDay");
-            var currentDayDate = document.createElement("h3");
+            function timeStamp() {
+                let date = new Date();
+                // let cDay = date.getDay();
+                let cDate = date.getDate();
+                let cMonth = date.getMonth();
+                let cYear = date.getFullYear();
+    
+                return `${cMonth+1} / ${cDate} / ${cYear}`
+            };
+
+            let currentDayDiv = document.getElementById("currentDay");
+            let currentDayCard = document.createElement("div");
+            currentDayDiv.appendChild(currentDayCard);
+            currentDayCard.setAttribute("class", "card");
+            let currentDayBody = document.createElement("div");
+            currentDayCard.appendChild(currentDayBody);
+            currentDayBody.setAttribute("class", "card-body");
+            let currentDayDate = document.createElement("h3");
+            currentDayDate.setAttribute("class", "card-title");
             currentDayDate.textContent = timeStamp();
-            currentDayCard.appendChild(currentDayDate);
-            var currentDayHeading = document.createElement("h3");
+            currentDayBody.appendChild(currentDayDate);
+            let currentDayHeading = document.createElement("h3");
+            currentDayHeading.setAttribute("class", "card-text");
             currentDayHeading.textContent = userInputEl;
-            currentDayCard.appendChild(currentDayHeading);
-            var currentDayTemp = document.createElement("h5");
+            currentDayBody.appendChild(currentDayHeading);
+            let currentDayTemp = document.createElement("h5");
+            currentDayTemp.setAttribute("class", "card-text");
             currentDayTemp.textContent = "Temp: " + data.current.temp + " F";
-            currentDayCard.appendChild(currentDayTemp);
-            var currentDayWind = document.createElement("h5");
+            currentDayBody.appendChild(currentDayTemp);
+            let currentDayWind = document.createElement("h5");
+            currentDayWind.setAttribute("class", "card-text");
             currentDayWind.textContent = "Wind Speed: " + data.current.wind_speed + "mph";
-            currentDayCard.appendChild(currentDayWind);
-            var currentDayHumidity = document.createElement("h5");
+            currentDayBody.appendChild(currentDayWind);
+            let currentDayHumidity = document.createElement("h5");
+            currentDayHumidity.setAttribute("class", "card-text");
             currentDayHumidity.textContent = "Humidity: " + data.current.humidity + " %";
-            currentDayCard.appendChild(currentDayHumidity);
-            var currentDayUvInex = document.createElement("h5");
+            currentDayBody.appendChild(currentDayHumidity);
+            let currentDayUvInex = document.createElement("h5");
+            currentDayUvInex.setAttribute("class", "card-text");
             currentDayUvInex.textContent = "UV Index: " + data.current.uvi;
-            currentDayCard.appendChild(currentDayUvInex);
+            currentDayBody.appendChild(currentDayUvInex);
+
+        
+
+        
 
             // -- below renders the five day forecast to the page
 
@@ -138,7 +158,6 @@ function cityLookUp(userInputEl) {
 
 
         });
-
 
 
     });
