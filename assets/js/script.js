@@ -16,16 +16,15 @@ var userInputEl = document.getElementById("userInput");
 
 startBtn.addEventListener("click", function(event){
     event.preventDefault()
+    $(".card").remove();
     cityLookUp(userInputEl.value);
-    console.log("event"+event);
+    console.log("event" + event);
     console.log("userInputEl = " + userInputEl);
-
 });
 //  -- the function above waits for the text input to be entered
 //  -- and the button clicked
 
 function cityLookUp(userInputEl) {
-    // -- clears previous search results
 
     // -- calls the geo location API to get latitude and longitude of requested city to input those values in the second API below
     fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + userInputEl + "&limit=5&appid=f1854a42b65c3a76fa9e1197b0e5cd1d")
@@ -70,7 +69,7 @@ function cityLookUp(userInputEl) {
             let currentDayDiv = document.getElementById("currentDay");
             let currentDayCard = document.createElement("div");
             currentDayDiv.appendChild(currentDayCard);
-            currentDayCard.setAttribute("class", "card");
+            currentDayCard.setAttribute("class", "card shadow p-3 mb-5 bg-white rounded");
             let currentDayBody = document.createElement("div");
             currentDayCard.appendChild(currentDayBody);
             currentDayBody.setAttribute("class", "card-body");
@@ -105,7 +104,7 @@ function cityLookUp(userInputEl) {
 
             // -- below renders the five day forecast to the page
 
-            for (i = 1; i <= 6; i++) {
+            for (i = 1; i <= 5; i++) {
                 function futureDate() {
                 let date = new Date() 
                 date.setDate(date.getDate() + i)
@@ -117,7 +116,7 @@ function cityLookUp(userInputEl) {
                 let futureDayDiv = document.getElementById("futureDay");
                 let futureDayCard = document.createElement("div");
                 futureDayDiv.appendChild(futureDayCard);
-                futureDayCard.setAttribute("class", "card");
+                futureDayCard.setAttribute("class", "card shadow p-3 mb-5 bg-white rounded");
                 let futureDayBody = document.createElement("div");
                 futureDayCard.appendChild(futureDayBody);
                 futureDayBody.setAttribute("class", "card-body");
@@ -161,21 +160,6 @@ function cityLookUp(userInputEl) {
 
 
     });
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
 
 
 };
