@@ -13,16 +13,19 @@ var startBtn = document.getElementById("startBtn");
 
 var userInputEl = document.getElementById("userInput");
 
+//  -- the function below waits for the user input to be entered
+//  -- and the button clicked
 
 startBtn.addEventListener("click", function(event){
     event.preventDefault()
+    // -- clears cards from previous query
     $(".card").remove();
+    // -- takes the user input and plugs that into the OpenWeather API
     cityLookUp(userInputEl.value);
-    console.log("event" + event);
-    console.log("userInputEl = " + userInputEl);
+    // -- clears the text input field making way for the next query
+    $("#userInput").val('');
 });
-//  -- the function above waits for the text input to be entered
-//  -- and the button clicked
+
 
 function cityLookUp(userInputEl) {
 
@@ -42,19 +45,12 @@ function cityLookUp(userInputEl) {
         fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon +"&units=imperial&appid=f1854a42b65c3a76fa9e1197b0e5cd1d")
             // --- calls out to the API for weather data
          .then(function(response) {
-            console.log("response", response)
             return response.json();
             // ---receives the data and parses it from a string to an object
          })
          .then(function (data) {
-            console.log("data", data)
-
+            
             // --new Date() grabs the current date and time
-
-
-
-
-            // ----receives the current day data and renders it to the page
             
             function timeStamp() {
                 let date = new Date();
@@ -65,6 +61,7 @@ function cityLookUp(userInputEl) {
     
                 return `${cMonth+1} / ${cDate} / ${cYear}`
             };
+            // ----receives the current day data and renders it to the page
 
             let currentDayDiv = document.getElementById("currentDay");
             let currentDayCard = document.createElement("div");
@@ -97,10 +94,6 @@ function cityLookUp(userInputEl) {
             currentDayUvInex.setAttribute("class", "card-text");
             currentDayUvInex.textContent = "UV Index: " + data.current.uvi;
             currentDayBody.appendChild(currentDayUvInex);
-
-        
-
-        
 
             // -- below renders the five day forecast to the page
 
