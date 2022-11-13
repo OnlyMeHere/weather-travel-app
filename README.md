@@ -49,7 +49,7 @@ humidity + " %";
 #### GIF of page in acton:
 
 
-![GIF of page in action](./assets/images/Weather%20Travel%20App.gif)
+![GIF of page in action](./assets/images/Travel-Weather-App-GIF.gif)
 
 
 #### Contact Me:
