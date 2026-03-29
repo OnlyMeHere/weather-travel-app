@@ -30,7 +30,7 @@ startBtn.addEventListener("click", function(event){
 function cityLookUp(userInputEl) {
 
     // -- calls the geo location API to get latitude and longitude of requested city to input those values in the second API below
-    fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + userInputEl + "&limit={limit}&appid=f1854a42b65c3a76fa9e1197b0e5cd1d")
+    fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + userInputEl + "&limit={limit}&appid={f1854a42b65c3a76fa9e1197b0e5cd1d}")
         .then(function(response) {
             console.log("Geo-Location = " + response);
             return response.json();
